@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 #
 # See help option for usage
 # Originally written by Damion Demeter, 09.03.2015
@@ -84,7 +84,7 @@ def main(argv=sys.argv):
         print 'Processing matrix as UNDIRECTED.'
         mat_type = 'undir'
         mat_type_string = 'UNDIRECTED'
-        mat_command = '-u'
+        mat_command = '-fundirected'
     ## THRESHOLD PERCENTAGE ##        
     if args.perc_thresh == 1.0:
         print 'Using default PERCENT THRESHOLD of 1.0 (100% of connections)'
@@ -184,7 +184,7 @@ def main(argv=sys.argv):
         
         rand_num = random.randint(1,9999)
         
-        infomap_comm = ' '.join([infomap,dst_file,output_dir,'--clu --map --tree --bftree -i pajek',mat_command,'-s',str(rand_num),'-N',str(args.attempts)])
+        infomap_comm = ' '.join([infomap,dst_file,output_dir,'--clu -2 --tree --ftree -i pajek',mat_command,'-s',str(rand_num),'-N',str(args.attempts)])
              
         subprocess.call(infomap_comm, shell=True)
         
